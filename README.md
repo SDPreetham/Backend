@@ -41,3 +41,24 @@ Fine - 1)Missing Subscription renewal
  Basic - 3 months
  Standard - 6 months
  Premium - 12 months
+
+ DB Connectivity
+ mongodb+srv://preethamsd8:<db@devtown>@cluster0.vputryb.mongodb.net/?retryWrites=true&w=majority
+
+ ## MVC Architecture
+ Modal View Controller
+
+ ## Data Transfer Object
+ User:{
+id:
+name:
+age:
+ }
+
+ DTO
+
+ InheritedUser{
+
+    id:
+    name:
+ }

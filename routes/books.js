@@ -1,7 +1,15 @@
 const express = require("express");
+
+//Controllers
+const {getAllBooks , getSingleBooksbyId, getAllIssuedBooks, addNewBook, updateBookById} = require("../controllers/book_controller");
 //Data Import
 const {books} = require("../data/books.json");
 const {users} = require("../data/users.json");
+
+
+const {UserModal,BookModal} = require("../modals")
+
+
 //Local Router
 const router = express.Router();
 
@@ -14,12 +22,14 @@ const router = express.Router();
  */
 
 
-router.get("/",(req,res)=>{
+/*router.get("/",(req,res)=>{
     res.status(200).json({
         success:true,
         data:books
     });
-})
+})*/
+
+router.get("/",getAllBooks)
 
 /** 
  * Route: /books/:id
@@ -29,7 +39,7 @@ router.get("/",(req,res)=>{
  * Parameters: ID
  */
 
-router.get("/:id",(req,res)=>{
+/*router.get("/:id",(req,res)=>{
     const {id} = req.params;
     const book = books.find((each)=>each.id===id);
 
@@ -43,7 +53,11 @@ return res.status(200).json({
     success:true,
     data:book
 })
-})
+})*/ 
+
+//getSingleBooksbyId
+router.get(":/id",getSingleBooksbyId);
+
 
 /** 
  * Route: /books/issued/by-user
@@ -52,7 +66,7 @@ return res.status(200).json({
  * Access:Public
  * Parameters: none
  */
-router.get("/issued/by-user",(req,res)=>{
+/*router.get("/issued/by-user",(req,res)=>{
     const UserIssuedBooks = users.filter((each)=>{
         if(each.issuedBook)
         return each;
@@ -81,7 +95,9 @@ router.get("/issued/by-user",(req,res)=>{
         success:true,
         data:issuedBooks
        })
-    })
+    })*/
+
+    router.get("/issued/by-user", getAllIssuedBooks);
 
 /** 
  * Route: /books/issued/by-user
@@ -92,7 +108,7 @@ router.get("/issued/by-user",(req,res)=>{
  * Data:author,name,Genre,Price,Publisher,ID
  */
 
-router.post('/',(req,res)=>{
+/*router.post('/',(req,res)=>{
 const {data} = req.body;
 //Info check
 if(!data){
@@ -117,7 +133,8 @@ return res.status(200).json({
     success:true,
     data:allBooks
 })
-})
+})*/
+router.post("/",addNewBook);
 
 
 
@@ -129,7 +146,7 @@ return res.status(200).json({
  * Parameters: ID
 
  */
-router.put("./id",(req,res)=>{
+/*router.put("./id",(req,res)=>{
     const {id} = req.params;
     const {data} = req.body;
 
@@ -154,7 +171,9 @@ router.put("./id",(req,res)=>{
         success:true,
         data:updateBook
     })
-})
+})*/
+
+router.put(":/id",updateBookById);
 
 //Default export
 module.exports = router;

@@ -47,3 +47,18 @@ Fine - 1)Missing Subscription renewal
 
  ## MVC Architecture
  Modal View Controller
+
+ ## Data Transfer Object
+ User:{
+id:
+name:
+age:
+ }
+
+ DTO
+
+ InheritedUser{
+
+    id:
+    name:
+ }

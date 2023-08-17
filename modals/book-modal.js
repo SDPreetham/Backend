@@ -36,5 +36,5 @@ timestamps:true,
 
 );
 
-//collections/tables
+//collections/tables => books
 module.exports = mongoose.model("Book",bookSchema);

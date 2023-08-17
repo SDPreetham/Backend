@@ -1,17 +1,28 @@
 const express = require("express");
 const {users} = require("../data/users.json");
+const { UserModal, BookModal } = require("../modals");
+const { getAllUsers, deleteUser } = require("../controllers/user_controller");
+const { getSingleBooksbyId } = require("../controllers/book_controller");
+const {getSingleUserbyId} = require("../controllers/user_controller");
+
+
 
 const router = express.Router();
 
 
-router.get("/",(req,res)=>{
+/*router.get("/",(req,res)=>{
     res.status(200).json({
         success:true,
         data:users,
     });
-});
+});*/
+router.get("/",getAllUsers)
 
-router.get("/:id",(req,res)=>{
+
+
+
+
+/*router.get("/:id",(req,res)=>{
     const {id} = req.params;
     const user = users.find((each)=>each.id===id);
     if(!user){
@@ -25,7 +36,8 @@ router.get("/:id",(req,res)=>{
         message:"User found",
         data:user,
     });
-});
+});*/
+router.get(":/id", getSingleUserbyId)
 
 /** 
  * Route: /users
@@ -100,7 +112,7 @@ return res.status(200).json({
  * Parameters: id
  */
 
-router.delete('/:id',(req,res)=>{
+/*router.delete('/:id',(req,res)=>{
     const {id} = req.params;
     const user = users.find((each)=>each.id===id);
 
@@ -117,7 +129,9 @@ router.delete('/:id',(req,res)=>{
             data:users
         });
     
-})
+})*/
+
+router.delete('/:id', deleteUser);
 
 
 /** 

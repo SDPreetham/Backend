@@ -1,5 +1,6 @@
 # Backend
 ## BOOK RECORD MANAGEMENT
+This project illustrates a Library Book Management System built using Javascript and NodeJS.
 Server -> Storing the book data, user register, subscribers
 
 # Routes and endpoints
